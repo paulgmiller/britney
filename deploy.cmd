@@ -1,3 +1,6 @@
 cd %DEPLOYMENT_SOURCE%
 dotnet restore 
-dotnet build -o %DEPLOYMENT_TARGET% -f netcoreapp1.0 -c retail
+dotnet publish -o %DEPLOYMENT_TEMP% -f netcoreapp1.0 -c retail
+
+robocopy /MIR %DEPLOYMENT_TEMP% %DEPLOYMENT_TARGET%
+
