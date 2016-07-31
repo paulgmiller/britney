@@ -79,7 +79,7 @@ call :ExecuteCmd nuget.exe restore -packagesavemode nuspec
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. Build and publish
-call :ExecuteCmd dotnet publish "D:\home\site\repository\src\AspNetCoreRC2" --output "%DEPLOYMENT_TEMP%" --configuration Release
+call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. KuduSync
